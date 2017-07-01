@@ -31,7 +31,7 @@ class ISSLocationSkill(MycroftSkill):
 
     def initialize(self):
         iss_location_intent = IntentBuilder("ISSLocationIntent").require("ISSKeyword").build()
-        self.register_intent(iss_loction_intent, self.handle_intent)
+        self.register_intent(iss_location_intent, self.handle_intent)
 
     def handle_intent(self, message):
         self.speak.dialog("in the space station skill intent handler")

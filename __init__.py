@@ -27,14 +27,14 @@ __author__ = 'GregV', '@lachendeKatze'
 
 class ISSLocationSkill(MycroftSkill):
     def __init__(self):
-        super(ISSLocationSkill, self).__init__("ISSLocationSkill")
+        super(ISSLocationSkill, self).__init__(name="ISSLocationSkill")
 
     def initialize(self):
-        intent = IntentBuilder("TimeIntent").require("QueryKeyword") \
-            .require("ISSKeyword").build()
-        self.register_intent(intent, self.handle_intent)
+        iss_location_intent = IntentBuilder("ISSLocationIntent").require("ISSKeyword").build()
+        self.register_intent(iss_loction_intent, self.handle_intent)
 
     def handle_intent(self, message):
+        self.speak.dialog("in the space station skill intent handler")
         req = urllib2.Request("http://api.open-notify.org/iss-now.json")
         response = urllib2.urlopen(req)
 

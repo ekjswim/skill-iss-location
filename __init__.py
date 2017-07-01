@@ -34,7 +34,7 @@ class ISSLocationSkill(MycroftSkill):
         self.register_intent(iss_location_intent, self.handle_intent)
 
     def handle_intent(self, message):
-        self.speak.dialog("in the space station skill intent handler")
+        self.speak.dialog("jello")
         req = urllib2.Request("http://api.open-notify.org/iss-now.json")
         response = urllib2.urlopen(req)
 

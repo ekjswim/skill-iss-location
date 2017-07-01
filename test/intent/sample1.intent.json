@@ -1,0 +1,7 @@
+{
+  "utterance": "where is the space station",
+  "intent_type": "ISSLocationIntent",
+  "intent": {
+    "ISSKeyword": "where is the space station"
+  }
+}

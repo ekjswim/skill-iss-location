@@ -1,4 +1,5 @@
-{{latitude}} latitude {{longitude}} longitude
-The space station is at {{latitude}} latitude {{longitude}} longitude
-It's at {{latitude}} latitude {{longitude}} longitude
-The ISS is now over {{latitude}} latitude {{longitude}} longitude
+{{latitude}} latitude {{longitude}} longitude which corresponds to {{toponym}}
+The space station is at {{latitude}} latitude {{longitude}} longitude over {{toponym}}
+It's at {{latitude}} latitude {{longitude}} longitude, {{toponym}}
+The ISS is now over {{toponym}} at {{latitude}} latitude {{longitude}} longitude
+{{toponym}} at {{latitude}} latitude and {{longitude}} longitude

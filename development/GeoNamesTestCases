@@ -1,0 +1,31 @@
+Geonames.org test cases:
+
+Buffalo, NY USA:        http://api.geonames.org/extendedFindNearby?lat=42.875087&lng=-78.874284&username=***
+Devil's Tower, WY USA:  http://api.geonames.org/extendedFindNearby?lat=44.590&lng=-104.715&username=***
+
+Lake Superior:          http://api.geonames.org/extendedFindNearby?lat=47.670&lng=-87.250&username=***
+Bering Sea:             http://api.geonames.org/extendedFindNearby?lat=52.445&lng=-178.428&username=***
+South Pacific:          http://api.geonames.org/extendedFindNearby?lat=-6.130&lng=177.581&username=***
+Indian Ocean:           http://api.geonames.org/extendedFindNearby?lat=-26.588&lng=55.154&username=***
+S. Atlantic Ocean:      http://api.geonames.org/extendedFindNearby?lat=-42.065&lng=-27.091&username=***
+Mediterranean Sea:      http://api.geonames.org/extendedFindNearby?lat=35.387&lng=17.691&username=***
+Black Sea:              http://api.geonames.org/extendedFindNearby?lat=43.642&lng=35.780&username=***
+Hudson's Bay:           http://api.geonames.org/extendedFindNearby?lat=60.308&lng=-85.937&username=***
+South China Sea:        http://api.geonames.org/extendedFindNearby?lat=15.218&lng=115.008&username=***
+Philippine Sea:         http://api.geonames.org/extendedFindNearby?lat=19.696&lng=133.691&username=***
+
+
+
+Country Code Example:
+
+Buffalo, NY USA:        http://api.geonames.org/countryCodeJSON?formatted=true&lat=42.875&lng=-78.874&username=***&style=full
+Saigon, Vietnam:        http://api.geonames.org/countryCodeJSON?formatted=true&lat=10.777&lng=106.719&username=***&style=full
+Abuja, Nigeria:         http://api.geonames.org/countryCodeJSON?formatted=true&lat=9.075&lng=7.407&username=***&style=full
+
+Bering Sea:             http://api.geonames.org/countryCodeJSON?formatted=true&lat=52.445&lng=-178.42&username=***&style=full
+Indian Ocean:           http://api.geonames.org/countryCodeJSON?formatted=true&lat=-26.588&lng=55.154&username=***&style=full
+Hudson's Bay:           http://api.geonames.org/countryCodeJSON?formatted=true&lat=60.308&lng=-85.937&username=***&style=full
+South China Sea:        http://api.geonames.org/countryCodeJSON?formatted=true&lat=15.218&lng=115.008&username=**&style=full
+
+Specifc requests for oceans:
+api.geonames.org/oceanJSON?lat=?????&lng=????&username=***

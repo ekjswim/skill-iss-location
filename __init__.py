@@ -63,11 +63,11 @@ class ISSLocationSkill(MycroftSkill):
         except:
             toponym = "unknown"
 
-        print "the ISS is over: " + toponym
+        # print "the ISS is over: " + toponym
         if toponym == "unknown":
             self.speak_dialog("location.unknown",{"latitude": latISS, "longitude": lngISS})
          else:
-            self.speak_dialog("location.current",{"latitude": latISS, "longitude": lngISS, "toponym":toponym})
+            self.speak_dialog("location.current",{"toponym":topovym, latitude": latISS, "longitude": lngISS})
 
     def stop(self):
         pass

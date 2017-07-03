@@ -61,11 +61,13 @@ class ISSLocationSkill(MycroftSkill):
             toponymObj = json.loads(landGeoNamesRes.read())
             toponym = toponymObj['countryName']
         except:
-    t       oponym = "unknown"
+            toponym = "unknown"
 
         print "the ISS is over: " + toponym
-
-        self.speak_dialog("location.current",{"latitude": latISS, "longitude": lngISS})
+        if toponym == "unknown":
+            self.speak_dialog("location.unknown",{"latitude": latISS, "longitude": lngISS})
+         else:
+            self.speak_dialog("location.current",{"latitude": latISS, "longitude": lngISS, "toponym":toponym})
 
     def stop(self):
         pass

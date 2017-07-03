@@ -34,19 +34,38 @@ class ISSLocationSkill(MycroftSkill):
         self.register_intent(iss_location_intent, self.handle_intent)
 
     def handle_intent(self, message):
-        self.speak.dialog("jello")
-        req = urllib2.Request("http://api.open-notify.org/iss-now.json")
-        response = urllib2.urlopen(req)
+        # get the 'current' latitude and longitude of the ISS from open-notify.org in JSON
+        reqISSLocation = urllib2.Request("http://api.open-notify.org/iss-now.json")
+        resISSLocation = urllib2.urlopen(reqISSLocation)
+        issObj = json.loads(resISSLocation.read()) # JSON payload of ISS location data
+        latISS = issObj['iss_position']['latitude']
+        lngISS = issObj['iss_position']['longitude']
 
-        obj = json.loads(response.read())
+        # construct a string witj ISS lat & long to determine a geographic object/toponym associated with it
+        # This is "Reverse Gecoding" availbe from geonames.org
+        # Sign up for a free user name at http://www.geonames.org/ and repalce YourUserName with it
+        # !! remember to activate web servoces for your user name !!
+        oceanGeoNamesReq = "http://api.geonames.org/oceanJSON?lat="+ latISS +"&lng="+ lngISS +"&username=YourUserName"
+        landGeoNamesReq  = "http://api.geonames.org/countryCodeJSON?formatted=true&lat=" + latISS + "&lng=" + lngISS +"&username=YourUserName&style=full"
 
-        print obj['timestamp']
-        print obj['iss_position']['latitude'], obj['iss_position']['longitude'] # fixed this line from the original code
+        # Since the Earth is 3/4 water, we'll chek to see if the ISS is over water first;
+        # in the case where this is not so, we handle the exception by  searching for a country it is
+        # over, and is this is not coded for on GenNames, we just we say we don't know
 
-        issLatitude =  obj['iss_position']['latitude']
-        issLongitude = obj['iss_position']['longitude']
+        oceanGeoNamesRes = urllib2.urlopen(oceanGeoNamesReq)
+        toponymObj = json.loads(oceanGeoNamesRes.read())
+        try:
+            toponym = toponymObj['ocean']['name']
+        except KeyError:
+            landGeoNamesRes = urllib2.urlopen(landGeoNamesReq)
+            toponymObj = json.loads(landGeoNamesRes.read())
+            toponym = toponymObj['countryName']
+        except:
+    t       oponym = "unknown"
 
-        self.speak_dialog("location.current",{"latitude": issLatitude, "longitude": issLongitude})
+        print "the ISS is over: " + toponym
+
+        self.speak_dialog("location.current",{"latitude": latISS, "longitude": lngISS})
 
     def stop(self):
         pass

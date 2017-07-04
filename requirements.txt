@@ -1,2 +1,4 @@
 urllib2
 json
+http://open-notify.org/
+http://www.geonames.org/

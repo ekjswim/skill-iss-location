@@ -55,7 +55,7 @@ class ISSLocationSkill(MycroftSkill):
         oceanGeoNamesRes = urllib2.urlopen(oceanGeoNamesReq)
         toponymObj = json.loads(oceanGeoNamesRes.read())
         try:
-            toponym = toponymObj['ocean']['name']
+            toponym = "the " + toponymObj['ocean']['name']
         except KeyError:
             landGeoNamesRes = urllib2.urlopen(landGeoNamesReq)
             toponymObj = json.loads(landGeoNamesRes.read())

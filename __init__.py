@@ -30,6 +30,8 @@ class ISSLocationSkill(MycroftSkill):
         super(ISSLocationSkill, self).__init__(name="ISSLocationSkill")
 
     def initialize(self):
+        self.load_data_files(dirname(__file__))
+        
         iss_location_intent = IntentBuilder("ISSLocationIntent").require("ISSKeyword").build()
         self.register_intent(iss_location_intent, self.handle_intent)
 
